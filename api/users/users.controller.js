@@ -73,6 +73,17 @@ class UsersController {
       next(err);
     }
   }
+
+  async me(req, res, next) {
+    try {
+      const userId = req.user.userId; // get user's _id from the decoded token
+      const user = await usersService.get(userId) // fetch user details from the database
+      res.json(user); // send user details as response
+      console.log(user)
+    } catch (err) {
+      next(err);
+    }
+  }
 }
 
 module.exports = new UsersController();
