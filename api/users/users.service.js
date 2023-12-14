@@ -29,10 +29,6 @@ class UserService {
     }
     return user._id;
   }
-  // "me" method to return data from the currently connected user (from the token)
-  async me(userId) {
-    return this.get(userId);
-  }
 }
 
 module.exports = new UserService();

@@ -29,9 +29,6 @@
           <input type="text" placeholder="Password" required v-model="newUser.password">
           <button class="contrast">Créer</button>
         </form>
-        <h1>Utilisateur connecté</h1>
-        <button @click="me">Moi</button>
-        <h1>Utilisateur existant</h1>
         <table>
           <thead>
             <tr>
@@ -108,15 +105,6 @@ createApp({
             'x-access-token': this.userToken
           }
       })
-    },
-    async me() {
-      const res = await axios.get('/api/users/me', {
-          headers: {
-            'x-access-token': this.userToken
-          }
-      }).then(res => {
-        console.log(res.data)
-        return res.data})
     },
     async create() {
       await axios.post('/api/users', this.newUser, {
