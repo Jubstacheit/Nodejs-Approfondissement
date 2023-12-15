@@ -11,6 +11,10 @@ class ArticleService {
 	delete(id) {
 		return Article.deleteOne({ _id: id });
 	}
+	// getUserArticles method with populate() method
+	getUserArticles(user) {
+		return Article.find({ user: user }).populate('user');
+	}
 }
 
 module.exports = new ArticleService();
