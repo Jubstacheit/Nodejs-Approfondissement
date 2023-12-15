@@ -94,6 +94,9 @@ createApp({
       socket.on('user:create', (data) => {
         this.users.push(data)
       })
+      socket.on('article:create', (data) => {
+        this.users.push(data)
+      })
 
       socket.on('user:delete', (data) => {
         this.users = this.users.filter(user => user._id != data.id)
